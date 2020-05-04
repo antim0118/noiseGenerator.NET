@@ -45,6 +45,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EditColorsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditColorsForm.Designer.cs">
+      <DependentUpon>EditColorsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,6 +65,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EditColorsForm.resx">
+      <DependentUpon>EditColorsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormGenerator.resx">
       <DependentUpon>FormGenerator.cs</DependentUpon>
     </EmbeddedResource>

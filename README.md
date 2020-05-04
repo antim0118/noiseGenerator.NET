@@ -1,7 +1,7 @@
 # noiseGenerator.NET
-2-colored noise generator (BMP)
+Multiple-colored noise generator (BMP)
 
-### Download: [Releases](https://github.com/antimYT/noiseGenerator.NET/releases "Releases") (16Kb)
+### Download: [Releases](https://github.com/antimYT/noiseGenerator.NET/releases "Releases") (20Kb)
 
 ## Screenshots:
 
