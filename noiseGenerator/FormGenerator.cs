@@ -117,5 +117,61 @@ namespace noiseGenerator
             Random rand = new Random(DateTime.Now.Millisecond);
             numericUpDown_seed.Value = rand.Next(int.MaxValue);
         }
+
+        private void button_upscale_Click(object sender, EventArgs e)
+        {
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+
+            Color c0 = colors[0], c1 = colors[1];
+            int mult = 3;
+
+            Bitmap tbmp = new Bitmap(pictureBox_main.Image);
+            int w = tbmp.Width, h = tbmp.Height;
+            Bitmap bmp = new Bitmap(w * mult, h * mult, PixelFormat.Format24bppRgb);
+            for (int x = 0; x < w; x++)
+                for (int y = 0; y < h; y++)
+                {
+                    Color p = tbmp.GetPixel(x, y);
+                    for (int ox = 0; ox <= mult-1; ox++)
+                        for (int oy = 0; oy <= mult-1; oy++)
+                        {
+                            bmp.SetPixel((x * mult) + ox, (y * mult) + oy, p);
+                        }
+                }
+
+            tbmp = new Bitmap(bmp);
+            w *= mult;
+            h *= mult;
+            bmp = new Bitmap(w, h, PixelFormat.Format24bppRgb);
+            for (int x = 0; x < w; x++)
+                for (int y = 0; y < h; y++)
+                {
+                    Color p = tbmp.GetPixel(x, y);
+                    bool isSecondaryColor = false;
+                    for (int col = 1; col < colors.Length; col++)
+                        if (p.ToArgb() == colors[col].ToArgb())
+                            isSecondaryColor = true;
+
+                    if (isSecondaryColor && (x - 1 >= 0 && y - 1 >= 0 && x + 1 < tbmp.Width && y + 1 < tbmp.Height) &&
+                       (tbmp.LeftUpperCornerNotEqualsColor(x, y, p) || tbmp.LeftBottomCornerNotEqualsColor(x, y, p) ||
+                       tbmp.RightUpperCornerNotEqualsColor(x, y, p) || tbmp.RightBottomCornerNotEqualsColor(x, y, p)))
+                        bmp.SetPixel(x, y, c0);
+                    else
+                        //bmp.SetPixel(x, y, Color.Red);
+                        bmp.SetPixel(x, y, p);
+                }
+
+            if (temp_bmp != null)
+                temp_bmp.Dispose();
+            if (tbmp != null)
+                tbmp.Dispose();
+
+            pictureBox_main.Image = bmp;
+            temp_bmp = bmp;
+
+            sw.Stop();
+            label_2x_debuginfo.Text = $"-New resoulution: {pictureBox_main.Image.Width}x{pictureBox_main.Image.Height}\n-Elapsed: {sw.Elapsed.TotalMilliseconds.ToString("0.00")}ms";
+        }
     }
 }

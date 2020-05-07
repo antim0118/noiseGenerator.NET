@@ -17,6 +17,8 @@
         private void InitializeComponent()
         {
             this.panel_settings = new System.Windows.Forms.Panel();
+            this.label_2x_debuginfo = new System.Windows.Forms.Label();
+            this.button_upscale = new System.Windows.Forms.Button();
             this.button_generate_seed = new System.Windows.Forms.Button();
             this.button_save = new System.Windows.Forms.Button();
             this.button_colors = new System.Windows.Forms.Button();
@@ -29,17 +31,22 @@
             this.label_generatedms = new System.Windows.Forms.Label();
             this.panel_pic = new System.Windows.Forms.Panel();
             this.pictureBox_main = new noiseGenerator.PictureBoxCustom();
+            this.panel_test = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel_settings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_seed)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_height)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_width)).BeginInit();
             this.panel_pic.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).BeginInit();
+            this.panel_test.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel_settings
             // 
             this.panel_settings.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_settings.Controls.Add(this.label4);
+            this.panel_settings.Controls.Add(this.panel_test);
             this.panel_settings.Controls.Add(this.button_generate_seed);
             this.panel_settings.Controls.Add(this.button_save);
             this.panel_settings.Controls.Add(this.button_colors);
@@ -54,6 +61,29 @@
             this.panel_settings.Name = "panel_settings";
             this.panel_settings.Size = new System.Drawing.Size(150, 449);
             this.panel_settings.TabIndex = 0;
+            // 
+            // label_2x_debuginfo
+            // 
+            this.label_2x_debuginfo.AutoSize = true;
+            this.label_2x_debuginfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label_2x_debuginfo.Location = new System.Drawing.Point(3, 29);
+            this.label_2x_debuginfo.Name = "label_2x_debuginfo";
+            this.label_2x_debuginfo.Size = new System.Drawing.Size(20, 18);
+            this.label_2x_debuginfo.TabIndex = 12;
+            this.label_2x_debuginfo.Text = "-Info\r\n-Info";
+            // 
+            // button_upscale
+            // 
+            this.button_upscale.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.button_upscale.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(51)))));
+            this.button_upscale.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_upscale.Location = new System.Drawing.Point(3, 3);
+            this.button_upscale.Name = "button_upscale";
+            this.button_upscale.Size = new System.Drawing.Size(124, 23);
+            this.button_upscale.TabIndex = 11;
+            this.button_upscale.Text = "Upscale";
+            this.button_upscale.UseVisualStyleBackColor = false;
+            this.button_upscale.Click += new System.EventHandler(this.button_upscale_Click);
             // 
             // button_generate_seed
             // 
@@ -215,6 +245,26 @@
             this.pictureBox_main.TabIndex = 0;
             this.pictureBox_main.TabStop = false;
             // 
+            // panel_test
+            // 
+            this.panel_test.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_test.Controls.Add(this.label_2x_debuginfo);
+            this.panel_test.Controls.Add(this.button_upscale);
+            this.panel_test.Location = new System.Drawing.Point(8, 329);
+            this.panel_test.Name = "panel_test";
+            this.panel_test.Size = new System.Drawing.Size(132, 57);
+            this.panel_test.TabIndex = 13;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.Color.Gray;
+            this.label4.Location = new System.Drawing.Point(6, 316);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Experimental things:";
+            // 
             // FormGenerator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -236,6 +286,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_width)).EndInit();
             this.panel_pic.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_main)).EndInit();
+            this.panel_test.ResumeLayout(false);
+            this.panel_test.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -254,6 +306,10 @@
         private PictureBoxCustom pictureBox_main;
         private System.Windows.Forms.Button button_save;
         private System.Windows.Forms.Button button_generate_seed;
+        private System.Windows.Forms.Button button_upscale;
+        private System.Windows.Forms.Label label_2x_debuginfo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel panel_test;
     }
 }
 
